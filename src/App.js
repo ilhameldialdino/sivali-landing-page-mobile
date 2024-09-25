@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+
+import Header from './components/header'
+import Hero from './components/section/hero'
+import Role from './components/section/role'
+import Benefit from './components/section/benefit'
+import Contact from './components/section/contact'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Header />
+            <main className='flex flex-col min-h-screen gap-20'>
+                <Hero />
+                <Role />
+                <Benefit />
+                <Contact />
+            </main>
+        </>
+    )
 }
 
-export default App;
+export default App
