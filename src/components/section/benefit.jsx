@@ -43,15 +43,15 @@ const STEP = [
     },
 ]
 
-export default function Benefit() {
+export default function Benefit({ data }) {
     return (
         <Section className='gap-6 px-0'>
             <div className='px-5'>
-                <h2>Benefit buat kamu</h2>
+                <h2>{data.title}</h2>
             </div>
 
             <div className='gap-5 flex flex-col px-5'>
-                {BENEFIT.map((benefit, idx) => (
+                {data.benefitCard.map((benefit, idx) => (
                     <Card
                         key={idx}
                         className='bg-brand-500 text-neutral-50 h-[386px] px-4'
@@ -66,14 +66,17 @@ export default function Benefit() {
 
             <div className='flex flex-col gap-10'>
                 <div className='bg-brand-500 text-neutral-50 p-10 gap-10 flex flex-col justify-center items-center'>
-                    <div className='text-[160px] font-semibold bg-step-number text-transparent bg-clip-text'>4</div>
-                    <h2 className='text-center text-balance'>Langkah mudah mendaptkan kandidat</h2>
+                    <div className='text-[160px] font-semibold bg-step-number text-transparent bg-clip-text'>{data.stepCard.length}</div>
+                    <h2 className='text-center text-balance'>{data.stepTitle}</h2>
                 </div>
 
-                <ul className='flex flex-col gap-8 px-5 pt-8'>
-                    {STEP.map((step, idx) => (
+                <ul
+                    key={'step'}
+                    className='flex flex-col gap-8 px-5 pt-8'
+                >
+                    {data.stepCard.map((step, idx) => (
                         <li
-                            key={idx}
+                            key={`${step}-${idx}-4i3o24uo2`}
                             className='pl-2 w-full'
                         >
                             <div className='flex gap-5'>

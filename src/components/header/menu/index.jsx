@@ -17,7 +17,7 @@ export const Menu = () => {
             >
                 {Array.from({ length: 3 }).map((_, i) => (
                     <span
-                        key={i}
+                        key={`${i}-hamburger`}
                         className='block h-[2px] w-full bg-neutral-50'
                     />
                 ))}
@@ -46,7 +46,7 @@ export const Menu = () => {
                                 >
                                     {Array.from({ length: 2 }).map((_, i) => (
                                         <span
-                                            key={i}
+                                            key={`vector-${i}`}
                                             className='block h-[2px] w-full bg-black odd:rotate-45 even:-rotate-45 odd:translate-y-1/2 even:-translate-y-1/2'
                                         />
                                     ))}

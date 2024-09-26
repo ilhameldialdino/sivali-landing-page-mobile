@@ -18,9 +18,12 @@ const LINKS = [
 
 export const Links = () => {
     return (
-        <ul className='flex flex-col gap-5'>
+        <ul
+            key={'link'}
+            className='flex flex-col gap-5'
+        >
             {LINKS.map((link, idx) => (
-                <React.Fragment key={link}>
+                <React.Fragment key={`${link.label}-${idx}-f7s65f8as`}>
                     <li className='font-medium text-lg'>
                         <span>{link.label}</span>
                     </li>

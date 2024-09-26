@@ -11,10 +11,10 @@ export const RoleBadge = ({ badges }) => {
             {badges.map((badge, idx) => {
                 return (
                     <Badge
-                        key={`${badge}-${idx}`}
+                        key={idx}
                         className={idx < limit && !isShow ? 'block' : isShow ? 'block' : 'hidden'}
                     >
-                        {badge}
+                        {badge.title}
                     </Badge>
                 )
             })}
