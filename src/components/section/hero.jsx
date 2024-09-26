@@ -10,7 +10,7 @@ export default function Hero({ data: { title, subTitle, link } }) {
                 <p>{subTitle}</p>
             </div>
 
-            <div className='flex items-center justify-center gap-5 flex-wrap'>
+            <div className='flex items-center gap-5 flex-wrap'>
                 {link.map((data) => (
                     <Button
                         key={data.text}

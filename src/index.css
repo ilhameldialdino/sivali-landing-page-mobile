@@ -75,7 +75,7 @@
     }
 
     .h-hero {
-        height: calc(100vh - 96px);
+        min-height: calc(100vh - 96px);
     }
 
     .text-shadow {
