@@ -2,63 +2,17 @@ import React from 'react'
 import { Section } from '../ui/section'
 import { Card, CardDescription, CardHeader, CardTitle } from '../ui/card'
 
-const BENEFIT = [
-    {
-        title: 'Loker pasti sesuai',
-        subTitle: 'Kita pastiin loker yang muncul sesuai sama kemampuan dan pengalaman kamu',
-        image: '',
-    },
-    {
-        title: 'Absen digital',
-        subTitle: 'Cukup satu klik, data kehadiran kamu udah beres',
-        image: '',
-    },
-    {
-        title: 'Cek saldo',
-        subTitle: 'Setiap pendapatan yang kamu terima bisa kamu pantau langsung',
-        image: '',
-    },
-    {
-        title: 'Pantau lamaran',
-        subTitle: 'Status loker yang kamu lamar bakal di update secara real-time',
-        image: '',
-    },
-]
-
-const STEP = [
-    {
-        title: 'Download',
-        subTitle: 'Cari di App Store atau Playstore',
-        image: '⬇️',
-    },
-    {
-        title: 'Daftar',
-        subTitle: 'Isi profil dengan informasi keahlian dan preferensi kerjamu.',
-        image: '✍🏻',
-    },
-    {
-        title: 'Verifikasi',
-        subTitle: 'Selesaikan verifikasi untuk mengaktifkan akun dan memulai pencarian pekerjaan.',
-        image: '✅',
-    },
-    {
-        title: 'Siap kerja',
-        subTitle: 'Mulai bekerja segera dan nikmati penghasilan yang cepat.',
-        image: '🎉',
-    },
-]
-
-export default function Benefit() {
+export default function Benefit({ data }) {
     return (
         <Section className='gap-6 px-0'>
             <div className='px-5'>
-                <h2>Benefit buat kamu</h2>
+                <h2>{data.title}</h2>
             </div>
 
             <div className='gap-5 flex flex-col px-5'>
-                {BENEFIT.map((benefit, idx) => (
+                {data.benefitCard.map((benefit, idx) => (
                     <Card
-                        key={idx}
+                        key={benefit.id}
                         className='bg-brand-500 text-neutral-50 h-[386px] px-4'
                     >
                         <CardHeader className='flex-col items-start'>
@@ -71,12 +25,12 @@ export default function Benefit() {
 
             <div className='flex flex-col gap-10'>
                 <div className='bg-brand-500 text-neutral-50 p-10 gap-10 flex flex-col justify-center items-center'>
-                    <div className='text-[160px] font-semibold bg-step-number text-transparent bg-clip-text'>4</div>
-                    <h2 className='text-center text-balance'>Langkah mudah mendaptkan pekerjaan</h2>
+                    <div className='text-[160px] font-semibold bg-step-number text-transparent bg-clip-text'>{data.stepCard.length}</div>
+                    <h2 className='text-center text-balance'>{data.stepTitle}</h2>
                 </div>
 
                 <ul className='flex flex-col gap-8 px-5 pt-8'>
-                    {STEP.map((step, idx) => (
+                    {data.stepCard.map((step, idx) => (
                         <li
                             key={idx}
                             className='pl-2 w-full'
@@ -89,7 +43,7 @@ export default function Benefit() {
                                         </div>
                                     </div>
 
-                                    <div className='size-fit text-3xl'>{step.image}</div>
+                                    {/* <div className='size-fit text-3xl'>{step.image}</div> */}
                                 </div>
 
                                 <div>

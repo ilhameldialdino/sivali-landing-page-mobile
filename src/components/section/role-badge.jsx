@@ -11,17 +11,17 @@ export const RoleBadge = ({ badges }) => {
             {badges.map((badge, idx) => {
                 return (
                     <Badge
-                        key={`${badge}-${idx}`}
-                        className={idx < limit && !isShow ? 'block' : isShow ? 'block' : 'hidden'}
+                        key={idx}
+                        className={(idx < limit) > 0 && !isShow ? 'block' : isShow ? 'block' : 'hidden'}
                     >
-                        {badge}
+                        {badge.title}
                     </Badge>
                 )
             })}
 
-            {badges?.length - limit && !isShow && (
+            {badges?.length - limit > 0 && !isShow && (
                 <button onClick={() => setIsShow(true)}>
-                    <Badge>{badges.length - limit}+ Lainnya</Badge>
+                    <Badge>{badges.length - limit > 0 ? badges.length - limit : 0}+ Lainnya</Badge>
                 </button>
             )}
         </div>
