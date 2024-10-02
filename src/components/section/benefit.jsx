@@ -6,25 +6,25 @@ import { cn } from '../../utils/cn'
 export default function Benefit({ data }) {
     return (
         <Section className='gap-6 md:gap-[176px] px-0 max-w-screen-xl md:mx-auto w-full'>
-            <div className='px-5'>
+            <div className='px-5 flex flex-col gap-6 md:gap-12'>
                 <h2>{data.title}</h2>
-            </div>
 
-            <div className='gap-5 flex flex-col px-5 md:grid md:grid-cols-3 md:grid-rows-2'>
-                {data.benefitCard.map((benefit, idx) => (
-                    <Card
-                        key={benefit.id}
-                        className={cn(
-                            'bg-brand-500 text-neutral-50 h-[386px] px-4 row-span-1',
-                            idx === 0 || idx === data.benefitCard.length - 1 ? 'col-span-2' : 'col-span-1'
-                        )}
-                    >
-                        <CardHeader className='flex-col items-start'>
-                            <CardTitle className='text-neutral-50'>{benefit.title}</CardTitle>
-                            <CardDescription>{benefit.subTitle}</CardDescription>
-                        </CardHeader>
-                    </Card>
-                ))}
+                <div className='gap-5 flex flex-col md:grid md:grid-cols-3 md:grid-rows-2'>
+                    {data.benefitCard.map((benefit, idx) => (
+                        <Card
+                            key={benefit.id}
+                            className={cn(
+                                'bg-brand-500 text-neutral-50 h-[386px] px-4 row-span-1',
+                                idx === 0 || idx === data.benefitCard.length - 1 ? 'col-span-2' : 'col-span-1'
+                            )}
+                        >
+                            <CardHeader className='flex-col items-start'>
+                                <CardTitle className='text-neutral-50'>{benefit.title}</CardTitle>
+                                <CardDescription>{benefit.subTitle}</CardDescription>
+                            </CardHeader>
+                        </Card>
+                    ))}
+                </div>
             </div>
 
             <div className='flex flex-col gap-10 md:flex-row px-0 md:px-5'>

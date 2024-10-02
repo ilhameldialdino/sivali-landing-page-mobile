@@ -4,8 +4,6 @@ import { Section } from '../ui/section'
 import { urlFor } from '../../utils/urlForImage'
 
 export default function Hero({ data: { title, subTitle, link, image } }) {
-    console.log(image.url)
-
     return (
         <Section className='h-hero bg-brand-500 text-neutral-50 w-full overflow-hidden'>
             <div className='flex w-full max-w-screen-xl mx-auto flex-col md:flex-row md:justify-between md:items-center'>
