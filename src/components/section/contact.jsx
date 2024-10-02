@@ -3,8 +3,6 @@ import { Section } from '../ui/section'
 import { Button } from '../ui/button'
 
 export default function Contact({ data }) {
-    console.log(data)
-
     return (
         <Section className='bg-brand-500 text-neutral-50 h-[572px] rounded-t-3xl pt-10 pb-11 px-5'>
             <div className='flex flex-col items-center justify-between size-full'>

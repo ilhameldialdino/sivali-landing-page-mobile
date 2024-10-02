@@ -10,12 +10,12 @@ import Benefit from './components/section/benefit'
 import Contact from './components/section/contact'
 
 function App() {
-    const { data: r, error, isLoading } = useQuery(['static'], getData)
+    const { data: r, isLoading } = useQuery(['static'], getData)
 
     return (
         <>
             <Header />
-            <main className='flex flex-col min-h-screen gap-20'>
+            <main className='flex flex-col min-h-screen gap-20 md:gap-[176px]'>
                 {!isLoading ? (
                     <>
                         <Hero data={r.data.heroSection} />

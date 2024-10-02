@@ -1,19 +1,23 @@
 import React from 'react'
 import { Section } from '../ui/section'
 import { Card, CardDescription, CardHeader, CardTitle } from '../ui/card'
+import { cn } from '../../utils/cn'
 
 export default function Benefit({ data }) {
     return (
-        <Section className='gap-6 px-0'>
+        <Section className='gap-6 md:gap-[176px] px-0 max-w-screen-xl md:mx-auto w-full'>
             <div className='px-5'>
                 <h2>{data.title}</h2>
             </div>
 
-            <div className='gap-5 flex flex-col px-5'>
+            <div className='gap-5 flex flex-col px-5 md:grid md:grid-cols-3 md:grid-rows-2'>
                 {data.benefitCard.map((benefit, idx) => (
                     <Card
                         key={benefit.id}
-                        className='bg-brand-500 text-neutral-50 h-[386px] px-4'
+                        className={cn(
+                            'bg-brand-500 text-neutral-50 h-[386px] px-4 row-span-1',
+                            idx === 0 || idx === data.benefitCard.length - 1 ? 'col-span-2' : 'col-span-1'
+                        )}
                     >
                         <CardHeader className='flex-col items-start'>
                             <CardTitle className='text-neutral-50'>{benefit.title}</CardTitle>
@@ -23,13 +27,13 @@ export default function Benefit({ data }) {
                 ))}
             </div>
 
-            <div className='flex flex-col gap-10'>
-                <div className='bg-brand-500 text-neutral-50 p-10 gap-10 flex flex-col justify-center items-center'>
+            <div className='flex flex-col gap-10 md:flex-row px-0 md:px-5'>
+                <div className='bg-brand-500 text-neutral-50 p-10 gap-10 flex flex-col justify-center items-center md:rounded-2xl md:max-w-lg'>
                     <div className='text-[160px] font-semibold bg-step-number text-transparent bg-clip-text'>{data.stepCard.length}</div>
                     <h2 className='text-center text-balance'>{data.stepTitle}</h2>
                 </div>
 
-                <ul className='flex flex-col gap-8 px-5 pt-8'>
+                <ul className='flex flex-col gap-8 px-5 pt-8 pb-0 md:pb-8 md:gap-20'>
                     {data.stepCard.map((step, idx) => (
                         <li
                             key={idx}
