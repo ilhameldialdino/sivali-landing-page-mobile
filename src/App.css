@@ -1,4 +1,9 @@
 .size-logo {
     height: 32px;
     width: 118px;
+
+    @screen md {
+        height: 48px;
+        width: 176px;
+    }
 }

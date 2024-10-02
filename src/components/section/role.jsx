@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardPlaceholder, CardTitle } from '../ui/card'
 import { RoleBadge } from './role-badge'
 import { Section } from '../ui/section'
+import { cn } from '../../utils/cn'
 
 export default function Role({ data }) {
     const [index, setIndex] = useState(0)
@@ -17,18 +18,18 @@ export default function Role({ data }) {
     }
 
     return (
-        <Section className='flex flex-col px-5 gap-8'>
+        <Section className='flex flex-col px-5 gap-8 max-w-screen-xl md:mx-auto w-full'>
             <div className='space-y-3'>
                 <h2>{data.title}</h2>
                 <p>{data.subTitle}</p>
             </div>
 
-            <div className='flex flex-col items-center justify-center gap-6'>
+            <div className='flex flex-col items-center justify-center gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:items-start min-h-[50vh]'>
                 {data.card.map((role, idx) => {
                     return (
                         <Card
                             key={role.id}
-                            className={idx === index ? 'flex' : 'hidden'}
+                            className={cn(idx === index ? 'flex' : 'hidden', 'md:flex')}
                         >
                             <CardHeader>
                                 <CardPlaceholder>{/* <span className='text-4xl'>{role.image}</span> */}</CardPlaceholder>
@@ -43,7 +44,7 @@ export default function Role({ data }) {
                     )
                 })}
 
-                <div className='flex gap-3 w-fit items-center'>
+                <div className='flex gap-3 w-fit items-center md:hidden'>
                     <button
                         disabled={index <= 0}
                         onClick={handlePrev}

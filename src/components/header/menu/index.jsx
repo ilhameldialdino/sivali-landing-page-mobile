@@ -13,7 +13,7 @@ export const Menu = () => {
         <>
             <button
                 onClick={() => setIsMenuActive(!isMenuActive)}
-                className='size-6 flex flex-col justify-between py-0.5'
+                className='size-6 flex md:hidden flex-col justify-between py-0.5'
             >
                 {Array.from({ length: 3 }).map((_, i) => (
                     <span

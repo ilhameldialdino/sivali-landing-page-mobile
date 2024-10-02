@@ -45,27 +45,27 @@ const STEP = [
 
 export default function Benefit({ data }) {
     return (
-        <Section className='gap-6 px-0'>
-            <div className='px-5'>
+        <Section className='gap-6 md:gap-[176px] px-0 max-w-screen-xl md:mx-auto w-full'>
+            <div className='px-5 flex flex-col gap-6 md:gap-12'>
                 <h2>{data.title}</h2>
+
+                <div className='gap-5 flex flex-col md:grid md:grid-cols-3'>
+                    {data.benefitCard.map((benefit, idx) => (
+                        <Card
+                            key={idx}
+                            className='bg-brand-500 text-neutral-50 h-[386px] px-4'
+                        >
+                            <CardHeader className='flex-col items-start'>
+                                <CardTitle className='text-neutral-50'>{benefit.title}</CardTitle>
+                                <CardDescription>{benefit.subTitle}</CardDescription>
+                            </CardHeader>
+                        </Card>
+                    ))}
+                </div>
             </div>
 
-            <div className='gap-5 flex flex-col px-5'>
-                {data.benefitCard.map((benefit, idx) => (
-                    <Card
-                        key={idx}
-                        className='bg-brand-500 text-neutral-50 h-[386px] px-4'
-                    >
-                        <CardHeader className='flex-col items-start'>
-                            <CardTitle className='text-neutral-50'>{benefit.title}</CardTitle>
-                            <CardDescription>{benefit.subTitle}</CardDescription>
-                        </CardHeader>
-                    </Card>
-                ))}
-            </div>
-
-            <div className='flex flex-col gap-10'>
-                <div className='bg-brand-500 text-neutral-50 p-10 gap-10 flex flex-col justify-center items-center'>
+            <div className='flex flex-col gap-10 md:flex-row px-0 md:px-5'>
+                <div className='bg-brand-500 text-neutral-50 p-10 gap-10 flex flex-col justify-center items-center md:rounded-2xl md:max-w-lg'>
                     <div className='text-[160px] font-semibold bg-step-number text-transparent bg-clip-text'>{data.stepCard.length}</div>
                     <h2 className='text-center text-balance'>{data.stepTitle}</h2>
                 </div>
